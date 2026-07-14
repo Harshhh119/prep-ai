@@ -124,6 +124,6 @@ edtech-interview-ai/
 
 ## 👨‍💻 Submission Details
 - **Developer Name**: Harsh
-- **GitHub**: [github.com/harsh](https://github.com/harsh)
-- **LinkedIn**: [linkedin.com/in/harsh](https://linkedin.com/in/harsh)
+- **GitHub**: [github.com/Harshhh119](https://github.com/Harshhh119)
+- **LinkedIn**: [linkedin.com/in/harsh-vardhan-67028125a/](https://www.linkedin.com/in/harsh-vardhan-67028125a/)
 - **Target Role**: Fullstack Developer (Full-time Assignment 2)

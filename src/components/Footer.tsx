@@ -53,7 +53,7 @@ export default function Footer() {
         {/* Right Side: Links */}
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/harsh"
+            href="https://github.com/Harshhh119"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm"
@@ -62,7 +62,7 @@ export default function Footer() {
             <span>GitHub</span>
           </a>
           <a
-            href="https://linkedin.com/in/harsh"
+            href="https://www.linkedin.com/in/harsh-vardhan-67028125a/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm"
