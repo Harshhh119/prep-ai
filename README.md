@@ -1,36 +1,129 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PrepAI: AI-Powered Technical Mock Interview Platform
 
-## Getting Started
+**PrepAI** is a premium, full-stack web application designed for students and freshers to prepare for technical interviews. The platform dynamically generates role-specific interview modules, simulates live test environments, critiques response text via AI, and automatically compiles detailed feedback charts and customized study roadmaps.
 
-First, run the development server:
+Built as an assignment for **House of Edtech**, this project completely avoids standard "to-do lists" or "course managers" to solve a core edtech problem using advanced architecture.
 
+---
+
+## 🚀 Key Features
+
+1. **Custom JWT Security & Next.js Middleware**: Implements secure cookie-based authorization. Protects `/dashboard` and `/interview/*` paths globally at the edge without heavy third-party authentication overhead.
+2. **Dynamic AI Interview Prompter**: Calibrates questions based on target roles (Frontend, Backend, etc.) and difficulty using the Google Gemini 1.5 API.
+3. **Automated AI Grading & Ideal Answer Synthesis**: Evaluates candidate answers in real time, calculating scores, identifying missed points, and highlighting model answers.
+4. **Relational Database CRUD (Prisma/PostgreSQL)**: Handles creation, listing, updating (evaluation insertion), and cascade deletion of interviews and questions.
+5. **Personalized Study Roadmap**: Compiles final scores and dynamically synthesizes markdown checklists based on candidate weaknesses.
+6. **Premium Glassmorphic UI**: High-fidelity dark mode styling utilizing Tailwind CSS, smooth custom scrollbars, layout animations, and dashboard analytics.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework**: Next.js 16 (App Router, TypeScript)
+- **Styling**: Tailwind CSS
+- **Database**: PostgreSQL (interfaced via Prisma ORM)
+- **Authentication**: Custom JWT (stored in HTTP-Only cookies)
+- **AI Engine**: Google Gemini API (`@google/generative-ai`)
+- **Icons**: Lucide React
+
+---
+
+## ⚙️ Running Locally
+
+### 1. Prerequisite Packages
+Verify Node.js and NPM versions on your machine (built and validated on Node `v24` and NPM `v11`):
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+node -v
+npm -v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Variables Setup
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+Open `.env` and configure:
+- `JWT_SECRET`: A secure signing key.
+- `GEMINI_API_KEY`: Your Gemini API key. *(Optional: A high-quality mock evaluation engine is pre-written. If no key is set, the app runs in demonstration mode so you can test it immediately).*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Database Initialization (PostgreSQL vs. SQLite)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### Standard: PostgreSQL (Preferred)
+Provide a valid PostgreSQL connection string in `DATABASE_URL` inside `.env`. Then run:
+```bash
+npx prisma db push
+```
 
-## Learn More
+#### Fast Review Option: SQLite (1-Click Local Fallback)
+If you do not have a PostgreSQL database server running locally and want to test the app in 10 seconds:
+1. Open [prisma/schema.prisma](prisma/schema.prisma)
+2. Change the datasource block to:
+   ```prisma
+   datasource db {
+     provider = "sqlite"
+     url      = "file:./dev.db"
+   }
+   ```
+3. Remove all `@db.Text` annotations from the schema (as SQLite does not require specific text sizing modifiers).
+4. Run:
+   ```bash
+   npx prisma db push
+   ```
+This will automatically generate a lightweight SQLite file database (`dev.db`) in your project directory!
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Running the App
+Once the database is synced, run the development server:
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 Codebase Structure
 
-## Deploy on Vercel
+```
+edtech-interview-ai/
+├── prisma/
+│   └── schema.prisma              # Relational schemas (User, InterviewSession, InterviewQuestion)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx             # Root layout with premium glassmorphism base styling
+│   │   ├── page.tsx               # Animated marketing landing page
+│   │   ├── login/page.tsx         # Secure sign in card
+│   │   ├── register/page.tsx      # Secure registration card
+│   │   ├── dashboard/page.tsx     # Student dashboard showing interview history (CRUD read/delete)
+│   │   ├── interview/
+│   │   │   ├── new/page.tsx       # Start/Configure new interview (CRUD create)
+│   │   │   ├── [id]/page.tsx      # Live interactive interview prompter (CRUD update)
+│   │   │   └── [id]/feedback/page.tsx # AI grade details and checklist roadmaps
+│   │   ├── api/
+│   │   │   ├── auth/              # JWT auth endpoints (login, register, logout, me status)
+│   │   │   ├── interviews/        # CRUD endpoint routes for interview sessions
+│   │   │   └── ai/                # AI evaluate and finalize routes
+│   │   └── middleware.ts          # Edge cookie checker protecting dashboard routes
+│   ├── components/
+│   │   ├── Footer.tsx             # Mandatory candidate credentials
+│   │   ├── Navbar.tsx             # Client state-managed global navigation
+│   │   └── ui/
+│   │       └── Elements.tsx       # Shared custom buttons, cards, and inputs
+│   ├── lib/
+│   │   ├── ai.ts                  # Gemini API wrapper + detailed mock dataset switcher
+│   │   ├── db.ts                  # Hot-reload protected Prisma client
+│   │   └── jwt.ts                 # JWT sign/verify wrappers
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Design & Architecture Choices
+- **Custom Auth**: Used custom JWTs and cookies rather than external vendors (like NextAuth or Clerk) to showcase raw coding skills, JWT signature handling, and cookie security mechanics.
+- **AI Resiliency**: The Gemini API wrapper contains complete context mock generators. If the reviewer's internet connection drops or no API key is present, the app switches to offline mode with realistic mock interview prompts and evaluations.
+- **Edge Routing**: Next.js Middleware acts as a gatekeeper. By inspecting cookies at the network edge, redirects are executed instantaneously.
+
+---
+
+## 👨‍💻 Submission Details
+- **Developer Name**: Harsh
+- **GitHub**: [github.com/harsh](https://github.com/harsh)
+- **LinkedIn**: [linkedin.com/in/harsh](https://linkedin.com/in/harsh)
+- **Target Role**: Fullstack Developer (Full-time Assignment 2)
