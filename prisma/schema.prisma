@@ -25,8 +25,8 @@ model InterviewSession {
   role                String
   difficulty          String
   overallScore        Int?                // Nullable until completed
-  feedbackSummary     String?             @db.Text
-  personalizedRoadmap String?             @db.Text
+  feedbackSummary     String?             
+  personalizedRoadmap String?            
   status              String              // "DRAFT", "IN_PROGRESS", "COMPLETED"
   questions           InterviewQuestion[]
   createdAt           DateTime            @default(now())
@@ -37,11 +37,11 @@ model InterviewQuestion {
   id           String           @id @default(uuid())
   sessionId    String
   session      InterviewSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-  questionText String           @db.Text
+  questionText String          
   orderIndex   Int
-  userAnswer   String?          @db.Text
+  userAnswer   String?         
   aiScore      Int?             // Individual question score (0-100)
-  aiFeedback   String?          @db.Text
-  modelAnswer  String?          @db.Text
+  aiFeedback   String?          
+  modelAnswer  String?         
   createdAt    DateTime         @default(now())
 }

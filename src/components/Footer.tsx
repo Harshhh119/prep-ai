@@ -71,7 +71,7 @@ export default function Footer() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="mailto:harsh@example.com"
+            href="mailto:harshchaudhary5593@gmail.com"
             className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm"
           >
             <Mail className="w-4 h-4" />
