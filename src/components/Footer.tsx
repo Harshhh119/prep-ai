@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Heart } from "lucide-react";
+import { Mail } from "lucide-react";
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -34,20 +34,18 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto border-t border-white/10 bg-black/40 backdrop-blur-md py-6 px-4">
+    <footer className="w-full mt-auto border-t border-slate-200 bg-white/70 backdrop-blur-md py-6 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Left Side: Copy info */}
-        <div className="text-sm text-zinc-400">
-          <span>&copy; {new Date().getFullYear()} PrepAI. Designed for House of Edtech.</span>
+        <div className="text-sm text-slate-500">
+          <span>&copy; {new Date().getFullYear()} PrepAI</span>
         </div>
 
         {/* Center: Student Info */}
-        <div className="flex items-center gap-1.5 text-sm text-zinc-300">
-          <span>Developed with</span>
-          <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-          <span>by</span>
-          <span className="font-semibold text-indigo-400">Harsh</span>
+        <div className="flex items-center gap-1.5 text-sm text-slate-600">
+          <span>Developed by</span>
+          <span className="font-semibold text-indigo-600">Harsh</span>
         </div>
 
         {/* Right Side: Links */}
@@ -56,7 +54,7 @@ export default function Footer() {
             href="https://github.com/Harshhh119"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm"
+            className="flex items-center gap-1 text-slate-500 hover:text-indigo-600 transition-colors text-sm"
           >
             <GithubIcon className="w-4 h-4" />
             <span>GitHub</span>
@@ -65,14 +63,14 @@ export default function Footer() {
             href="https://www.linkedin.com/in/harsh-vardhan-67028125a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm"
+            className="flex items-center gap-1 text-slate-500 hover:text-indigo-600 transition-colors text-sm"
           >
             <LinkedinIcon className="w-4 h-4" />
             <span>LinkedIn</span>
           </a>
           <a
             href="mailto:harshchaudhary5593@gmail.com"
-            className="flex items-center gap-1 text-zinc-400 hover:text-white transition-colors text-sm"
+            className="flex items-center gap-1 text-slate-500 hover:text-indigo-600 transition-colors text-sm"
           >
             <Mail className="w-4 h-4" />
             <span>Contact</span>

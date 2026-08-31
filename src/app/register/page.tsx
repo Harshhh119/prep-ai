@@ -55,18 +55,18 @@ export default function Register() {
         
         {/* Header decoration */}
         <div className="text-center mb-8 space-y-2">
-          <div className="inline-flex p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-2">
+          <div className="inline-flex p-3 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-600 mb-2">
             <Brain className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl font-extrabold text-white">Create Account</h2>
-          <p className="text-zinc-400 text-sm">Join PrepAI to start practice interviews</p>
+          <h2 className="text-3xl font-extrabold text-slate-900">Create Account</h2>
+          <p className="text-slate-500 text-sm">Join PrepAI to start practice interviews</p>
         </div>
 
         {/* Card Form */}
         <GlassCard>
           <form onSubmit={handleSubmit} className="space-y-5">
             {error && (
-              <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+              <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-xs font-semibold">
                 {error}
               </div>
             )}
@@ -120,9 +120,9 @@ export default function Register() {
           </form>
 
           {/* Footer controls */}
-          <div className="mt-6 text-center text-xs text-zinc-400 border-t border-white/5 pt-4">
+          <div className="mt-6 text-center text-xs text-slate-500 border-t border-slate-200 pt-4">
             Already have an account?{" "}
-            <Link href="/login" className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center justify-center gap-1 mt-1 hover:underline">
+            <Link href="/login" className="text-indigo-600 hover:text-indigo-700 font-semibold flex items-center justify-center gap-1 mt-1 hover:underline">
               <span>Sign in instead</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>

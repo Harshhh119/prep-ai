@@ -99,11 +99,11 @@ export default function Dashboard() {
       {/* Welcome Banner */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight flex items-center gap-2">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
             <span>Welcome back, {userName}!</span>
-            <Sparkles className="w-6 h-6 text-indigo-400 fill-indigo-400/20" />
+            <Sparkles className="w-6 h-6 text-indigo-500 fill-indigo-500/20" />
           </h1>
-          <p className="text-zinc-400 text-sm sm:text-base mt-1">
+          <p className="text-slate-500 text-sm sm:text-base mt-1">
             Track your performance, practice new roles, and refine your skills.
           </p>
         </div>
@@ -119,23 +119,23 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
         {/* Metric 1 */}
         <GlassCard className="flex items-center gap-5">
-          <div className="p-3.5 rounded-xl bg-indigo-500/10 border border-indigo-500/25 text-indigo-400">
+          <div className="p-3.5 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600">
             <BookOpen className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Total Interviews</p>
-            <p className="text-3xl font-extrabold text-white mt-1">{interviews.length}</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Interviews</p>
+            <p className="text-3xl font-extrabold text-slate-900 mt-1">{interviews.length}</p>
           </div>
         </GlassCard>
 
         {/* Metric 2 */}
         <GlassCard className="flex items-center gap-5">
-          <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/25 text-purple-400">
+          <div className="p-3.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-600">
             <Award className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Average AI Score</p>
-            <p className="text-3xl font-extrabold text-white mt-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Average AI Score</p>
+            <p className="text-3xl font-extrabold text-slate-900 mt-1">
               {totalCompleted ? `${avgScore}%` : "N/A"}
             </p>
           </div>
@@ -143,12 +143,12 @@ export default function Dashboard() {
 
         {/* Metric 3 */}
         <GlassCard className="flex items-center gap-5">
-          <div className="p-3.5 rounded-xl bg-pink-500/10 border border-pink-500/25 text-pink-400">
+          <div className="p-3.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-600">
             <TrendingUp className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">Completed Drills</p>
-            <p className="text-3xl font-extrabold text-white mt-1">{totalCompleted}</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Completed Drills</p>
+            <p className="text-3xl font-extrabold text-slate-900 mt-1">{totalCompleted}</p>
           </div>
         </GlassCard>
       </div>
@@ -159,17 +159,17 @@ export default function Dashboard() {
         {/* Past Interviews List */}
         <GlassCard className="lg:col-span-2 space-y-6 flex flex-col min-h-[400px]">
           <div>
-            <h3 className="text-xl font-bold text-white tracking-tight">Interview History</h3>
-            <p className="text-xs text-zinc-400 mt-0.5">Manage and review all your mock sessions</p>
+            <h3 className="text-xl font-bold text-slate-900 tracking-tight">Interview History</h3>
+            <p className="text-xs text-slate-500 mt-0.5">Manage and review all your mock sessions</p>
           </div>
 
           {loading ? (
-            <div className="flex-grow flex flex-col items-center justify-center text-zinc-400 gap-2">
+            <div className="flex-grow flex flex-col items-center justify-center text-slate-500 gap-2">
               <div className="w-8 h-8 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
               <span className="text-xs font-semibold">Retrieving mock data...</span>
             </div>
           ) : interviews.length === 0 ? (
-            <div className="flex-grow border border-dashed border-white/10 rounded-xl flex flex-col items-center justify-center p-8 text-center text-zinc-400 space-y-4">
+            <div className="flex-grow border border-dashed border-slate-300 rounded-xl flex flex-col items-center justify-center p-8 text-center text-slate-500 space-y-4">
               <p className="text-sm max-w-xs">You haven't taken any mock interviews yet. Set up your first session now!</p>
               <Link href="/interview/new">
                 <CustomButton variant="secondary" className="px-5 py-2 text-xs">
@@ -182,27 +182,27 @@ export default function Dashboard() {
               {interviews.map((session) => (
                 <div
                   key={session.id}
-                  className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 hover:border-white/10 transition-all group"
+                  className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-200 transition-all group"
                 >
                   <div className="space-y-1.5 max-w-[70%]">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-bold text-white text-sm sm:text-base leading-tight">
+                      <span className="font-bold text-slate-900 text-sm sm:text-base leading-tight">
                         {session.role}
                       </span>
                       <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
                         session.difficulty === "Expert" 
-                          ? "bg-red-500/10 text-red-400 border border-red-500/20" 
+                          ? "bg-red-50 text-red-600 border border-red-200" 
                           : session.difficulty === "Intermediate"
-                          ? "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
-                          : "bg-green-500/10 text-green-400 border border-green-500/20"
+                          ? "bg-yellow-50 text-yellow-600 border border-yellow-200"
+                          : "bg-green-50 text-green-600 border border-green-200"
                       }`}>
                         {session.difficulty}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-4 text-xs text-zinc-400">
+                    <div className="flex items-center gap-4 text-xs text-slate-500">
                       <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-zinc-500" />
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
                         {new Date(session.createdAt).toLocaleDateString()}
                       </span>
                       <span>{session._count.questions} questions</span>
@@ -213,12 +213,12 @@ export default function Dashboard() {
                     {/* Score / Status Display */}
                     {session.status === "COMPLETED" ? (
                       <div className="text-right">
-                        <span className="text-base font-extrabold text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 px-2 py-1 rounded">
+                        <span className="text-base font-extrabold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2 py-1 rounded">
                           {session.overallScore}%
                         </span>
                       </div>
                     ) : (
-                      <span className="text-xs font-semibold px-2 py-1 rounded bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 animate-pulse">
+                      <span className="text-xs font-semibold px-2 py-1 rounded bg-yellow-50 text-yellow-600 border border-yellow-200 animate-pulse">
                         In Progress
                       </span>
                     )}
@@ -230,7 +230,7 @@ export default function Dashboard() {
                           ? `/interview/${session.id}/feedback`
                           : `/interview/${session.id}`
                       }
-                      className="p-2 rounded-lg bg-white/5 border border-white/5 hover:bg-indigo-600 hover:text-white transition-all text-zinc-300"
+                      className="p-2 rounded-lg bg-slate-100 border border-slate-200 hover:bg-indigo-600 hover:text-white transition-all text-slate-600"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </Link>
@@ -238,7 +238,7 @@ export default function Dashboard() {
                     {/* Delete button (CRUD - Delete) */}
                     <button
                       onClick={(e) => handleDelete(session.id, e)}
-                      className="p-2 rounded-lg bg-white/5 border border-white/5 hover:bg-red-500/10 hover:text-red-400 transition-all text-zinc-400 cursor-pointer"
+                      className="p-2 rounded-lg bg-slate-100 border border-slate-200 hover:bg-red-50 hover:text-red-600 transition-all text-slate-400 cursor-pointer"
                       title="Delete interview"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -253,34 +253,34 @@ export default function Dashboard() {
         {/* Analytics Card */}
         <GlassCard className="flex flex-col space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-              <BarChart3 className="w-5 h-5 text-purple-400" />
+            <h3 className="text-xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <BarChart3 className="w-5 h-5 text-purple-600" />
               <span>Performance Analytics</span>
             </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">Mock score progression</p>
+            <p className="text-xs text-slate-500 mt-0.5">Mock score progression</p>
           </div>
 
           <div className="flex-grow flex flex-col justify-between min-h-[250px]">
             {totalCompleted === 0 ? (
-              <div className="flex-grow flex flex-col items-center justify-center text-center text-zinc-400 p-4 border border-dashed border-white/5 rounded-xl">
+              <div className="flex-grow flex flex-col items-center justify-center text-center text-slate-500 p-4 border border-dashed border-slate-300 rounded-xl">
                 <span className="text-xs max-w-[180px]">Complete at least one mock interview to view scoring trends.</span>
               </div>
             ) : (
               <div className="space-y-6">
                 {/* Simulated Chart using inline styled blocks */}
-                <div className="flex items-end justify-between h-40 pt-4 px-2 border-b border-white/10 relative">
+                <div className="flex items-end justify-between h-40 pt-4 px-2 border-b border-slate-200 relative">
                   {/* Grid Lines */}
                   <div className="absolute inset-0 flex flex-col justify-between pointer-events-none pb-1">
-                    <div className="w-full border-t border-white/5 text-[9px] text-zinc-600 text-right pr-1">100%</div>
-                    <div className="w-full border-t border-white/5 text-[9px] text-zinc-600 text-right pr-1">50%</div>
-                    <div className="w-full border-t border-white/5 text-[9px] text-zinc-600 text-right pr-1">0%</div>
+                    <div className="w-full border-t border-slate-200 text-[9px] text-slate-400 text-right pr-1">100%</div>
+                    <div className="w-full border-t border-slate-200 text-[9px] text-slate-400 text-right pr-1">50%</div>
+                    <div className="w-full border-t border-slate-200 text-[9px] text-slate-400 text-right pr-1">0%</div>
                   </div>
                   
                   {/* Bars (up to the last 5 sessions) */}
                   {completedSessions.slice(-5).reverse().map((item, idx) => (
                     <div key={item.id} className="flex flex-col items-center gap-2 w-1/5 group z-10">
                       {/* Tooltip on hover */}
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black border border-white/10 px-2 py-0.5 rounded text-[10px] text-white absolute -top-2">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 border border-slate-800 px-2 py-0.5 rounded text-[10px] text-white absolute -top-2">
                         {item.overallScore}%
                       </span>
                       {/* Bar fill */}
@@ -288,7 +288,7 @@ export default function Dashboard() {
                         style={{ height: `${item.overallScore || 0}%` }}
                         className="w-8 rounded-t bg-gradient-to-t from-indigo-600 to-purple-500 hover:from-indigo-500 hover:to-purple-400 transition-all duration-500 flex items-end justify-center shadow-lg shadow-indigo-500/20"
                       />
-                      <span className="text-[10px] text-zinc-500 max-w-[60px] truncate block text-center">
+                      <span className="text-[10px] text-slate-400 max-w-[60px] truncate block text-center">
                         Mock #{idx + 1}
                       </span>
                     </div>
@@ -297,16 +297,16 @@ export default function Dashboard() {
 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="text-zinc-400 font-medium">Average Performance:</span>
-                    <span className="text-indigo-400 font-extrabold">{avgScore}%</span>
+                    <span className="text-slate-500 font-medium">Average Performance:</span>
+                    <span className="text-indigo-600 font-extrabold">{avgScore}%</span>
                   </div>
-                  <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden border border-white/5">
+                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
                     <div
                       className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-500"
                       style={{ width: `${avgScore}%` }}
                     />
                   </div>
-                  <p className="text-[11px] text-zinc-400 leading-relaxed pt-1">
+                  <p className="text-[11px] text-slate-500 leading-relaxed pt-1">
                     🔥 Complete more interview modules to calibrate your rating and identify study gaps.
                   </p>
                 </div>

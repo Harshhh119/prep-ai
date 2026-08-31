@@ -8,16 +8,16 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center py-16 px-4 max-w-6xl mx-auto w-full">
       {/* Hero Section */}
       <section className="text-center mt-8 mb-16 space-y-6 max-w-3xl">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wide uppercase animate-pulse-slow">
-          <Star className="w-3.5 h-3.5 fill-indigo-400" />
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-600 text-xs font-semibold tracking-wide uppercase animate-pulse-slow">
+          <Star className="w-3.5 h-3.5 fill-indigo-600" />
           <span>AI-Powered Career Accelerator</span>
         </div>
 
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-100 to-purple-300 leading-tight">
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 via-purple-700 to-violet-700 leading-tight">
           Ace Your Technical Interviews with AI
         </h1>
         
-        <p className="text-lg text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
           Get real-time, constructive mock interviews generated on-the-fly. Receive detailed code reviews, communication grades, and a personalized study roadmap to land your dream job.
         </p>
 
@@ -41,33 +41,33 @@ export default function Home() {
         
         {/* Feature 1 */}
         <GlassCard hoverEffect className="flex flex-col gap-4">
-          <div className="w-12 h-12 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+          <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600">
             <Brain className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-white">Dynamic AI Scenarios</h3>
-          <p className="text-sm text-zinc-400 leading-relaxed">
+          <h3 className="text-xl font-bold text-slate-900">Dynamic AI Scenarios</h3>
+          <p className="text-sm text-slate-500 leading-relaxed">
             Specify your role (Frontend, Backend, Fullstack, etc.) and difficulty. Our AI dynamically generates highly relevant, context-aware coding and architectural questions.
           </p>
         </GlassCard>
 
         {/* Feature 2 */}
         <GlassCard hoverEffect className="flex flex-col gap-4">
-          <div className="w-12 h-12 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400">
+          <div className="w-12 h-12 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600">
             <ShieldCheck className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-white">Granular Score Breakdown</h3>
-          <p className="text-sm text-zinc-400 leading-relaxed">
+          <h3 className="text-xl font-bold text-slate-900">Granular Score Breakdown</h3>
+          <p className="text-sm text-slate-500 leading-relaxed">
             Get instant feedback for each answer. See your model answer comparison, score distribution, communication clarity rating, and exactly what points were missed.
           </p>
         </GlassCard>
 
         {/* Feature 3 */}
         <GlassCard hoverEffect className="flex flex-col gap-4">
-          <div className="w-12 h-12 rounded-xl bg-pink-600/20 border border-pink-500/30 flex items-center justify-center text-pink-400">
+          <div className="w-12 h-12 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-600">
             <CheckCircle2 className="w-6 h-6" />
           </div>
-          <h3 className="text-xl font-bold text-white">Personalized Roadmap</h3>
-          <p className="text-sm text-zinc-400 leading-relaxed">
+          <h3 className="text-xl font-bold text-slate-900">Personalized Roadmap</h3>
+          <p className="text-sm text-slate-500 leading-relaxed">
             Once you finish, receive a tailored markdown roadmap complete with learning checklists, coding drills, and conceptual topics to study based directly on your weak spots.
           </p>
         </GlassCard>
@@ -76,16 +76,16 @@ export default function Home() {
 
       {/* Demo Section or Stat Panel */}
       <section className="w-full">
-        <GlassCard className="relative overflow-hidden border border-white/5 bg-gradient-to-r from-black/45 via-indigo-950/10 to-black/45 p-8 sm:p-12">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <GlassCard className="relative overflow-hidden border border-indigo-100 bg-gradient-to-r from-indigo-50/50 via-white to-purple-50/50 p-8 sm:p-12">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-200/30 rounded-full blur-3xl -z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl -z-10 pointer-events-none" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                 Designed for ambitious students and freshers
               </h2>
-              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 As a student stepping into the industry, preparing for interviews can feel overwhelming. PrepAI acts as a friendly mentor that evaluates your readiness, points out bugs in your code explanations, and generates structured roadmaps so you know exactly what to study next.
               </p>
               
@@ -96,27 +96,27 @@ export default function Home() {
                   "Fully secure local storage and JWT cookie protection.",
                   "Integrates the latest Google Gemini 1.5 model."
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-2 text-sm text-zinc-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                  <li key={idx} className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="flex flex-col gap-4 border border-white/10 bg-black/60 rounded-xl p-6 shadow-inner">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <div className="flex flex-col gap-4 border border-slate-200 bg-white rounded-xl p-6 shadow-inner">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                   <div className="w-3 h-3 rounded-full bg-green-500" />
                 </div>
-                <span className="text-xs text-zinc-500">Live Interview Sandbox</span>
+                <span className="text-xs text-slate-400">Live Interview Sandbox</span>
               </div>
-              <div className="space-y-4 text-xs font-mono text-zinc-400">
-                <p className="text-indigo-300 font-bold">// Question 1 of 5</p>
-                <p className="text-zinc-200">"Explain reconciliation in React and the purpose of keys."</p>
-                <div className="bg-zinc-950/60 p-3 rounded border border-white/5 text-zinc-500">
+              <div className="space-y-4 text-xs font-mono text-slate-500">
+                <p className="text-indigo-600 font-bold">// Question 1 of 5</p>
+                <p className="text-slate-800">"Explain reconciliation in React and the purpose of keys."</p>
+                <div className="bg-slate-100 p-3 rounded border border-slate-200 text-slate-400">
                   Type your explanation here...
                 </div>
                 <div className="flex justify-end">

@@ -61,7 +61,7 @@ export default function NewInterview() {
         {/* Back Link */}
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors text-sm font-semibold"
+          className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors text-sm font-semibold"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Dashboard</span>
@@ -72,15 +72,15 @@ export default function NewInterview() {
           <GlassCard className="flex flex-col items-center justify-center text-center p-12 space-y-6">
             <div className="relative">
               <div className="w-16 h-16 rounded-full border-4 border-indigo-500/20 border-t-indigo-500 border-r-indigo-500 animate-spin" />
-              <Brain className="w-6 h-6 text-indigo-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+              <Brain className="w-6 h-6 text-indigo-600 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
             </div>
             <div className="space-y-2">
-              <h3 className="text-xl font-bold text-white tracking-tight flex items-center justify-center gap-2">
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight flex items-center justify-center gap-2">
                 <span>Generating Questions</span>
-                <Sparkles className="w-5 h-5 text-indigo-400 fill-indigo-400/20 animate-bounce" />
+                <Sparkles className="w-5 h-5 text-indigo-600 fill-indigo-400/20 animate-bounce" />
               </h3>
-              <p className="text-zinc-400 text-sm max-w-md">
-                Our Gemini AI engine is tailoring 5 technical and behavioral interview questions based on the <span className="text-indigo-300 font-semibold">{role}</span> profile. This will take just a few seconds...
+              <p className="text-slate-500 text-sm max-w-md">
+                Our Gemini AI engine is tailoring 5 technical and behavioral interview questions based on the <span className="text-indigo-700 font-semibold">{role}</span> profile. This will take just a few seconds...
               </p>
             </div>
           </GlassCard>
@@ -88,22 +88,22 @@ export default function NewInterview() {
           /* Configuration panel */
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl font-extrabold text-white tracking-tight">Configure Session</h1>
-              <p className="text-zinc-400 text-sm mt-1">Specify your target details below to calibrate the interview simulator.</p>
+              <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Configure Session</h1>
+              <p className="text-slate-500 text-sm mt-1">Specify your target details below to calibrate the interview simulator.</p>
             </div>
 
             <GlassCard>
               <form onSubmit={handleSubmit} className="space-y-6">
                 
                 {error && (
-                  <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+                  <div className="p-3 rounded-lg bg-red-50 border-red-200 text-red-600 text-xs font-semibold">
                     {error}
                   </div>
                 )}
 
                 {/* Role select */}
                 <div className="space-y-3">
-                  <label className="text-xs font-semibold text-zinc-300 tracking-wide uppercase">
+                  <label className="text-xs font-semibold text-slate-600 tracking-wide uppercase">
                     Target Role / Domain
                   </label>
                   
@@ -116,8 +116,8 @@ export default function NewInterview() {
                         onClick={() => setRole(predef)}
                         className={`p-3 rounded-lg text-xs font-semibold border text-center transition-all cursor-pointer ${
                           role === predef
-                            ? "bg-indigo-600/20 border-indigo-500 text-indigo-300 shadow-md shadow-indigo-500/10"
-                            : "bg-black/30 border-white/5 text-zinc-400 hover:border-white/10 hover:text-zinc-200"
+                            ? "bg-indigo-50 border-indigo-300 text-indigo-700 shadow-md shadow-indigo-500/10"
+                            : "bg-white border-slate-200 text-slate-500 hover:border-indigo-200 hover:text-slate-800"
                         }`}
                       >
                         {predef}
@@ -129,7 +129,7 @@ export default function NewInterview() {
                   <div className="pt-2">
                     <input
                       type="text"
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-white border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all"
                       placeholder="Or specify custom role: e.g. React Developer"
                       value={role}
                       onChange={(e) => setRole(e.target.value)}
@@ -139,7 +139,7 @@ export default function NewInterview() {
 
                 {/* Difficulty Select */}
                 <div className="space-y-3">
-                  <label className="text-xs font-semibold text-zinc-300 tracking-wide uppercase">
+                  <label className="text-xs font-semibold text-slate-600 tracking-wide uppercase">
                     Experience Level
                   </label>
                   
@@ -151,8 +151,8 @@ export default function NewInterview() {
                         onClick={() => setDifficulty(level)}
                         className={`p-3.5 rounded-lg text-xs font-semibold border text-center transition-all cursor-pointer ${
                           difficulty === level
-                            ? "bg-purple-600/20 border-purple-500 text-purple-300 shadow-md shadow-purple-500/10"
-                            : "bg-black/30 border-white/5 text-zinc-400 hover:border-white/10 hover:text-zinc-200"
+                            ? "bg-purple-50 border-purple-300 text-purple-700 shadow-md shadow-purple-500/10"
+                            : "bg-white border-slate-200 text-slate-500 hover:border-indigo-200 hover:text-slate-800"
                         }`}
                       >
                         {level}

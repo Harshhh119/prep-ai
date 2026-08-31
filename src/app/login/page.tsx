@@ -64,24 +64,24 @@ function LoginContent() {
     <div className="w-full max-w-md">
       {/* Header decoration */}
       <div className="text-center mb-8 space-y-2">
-        <div className="inline-flex p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-2">
+        <div className="inline-flex p-3 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-600 mb-2">
           <Brain className="w-6 h-6" />
         </div>
-        <h2 className="text-3xl font-extrabold text-white">Welcome Back</h2>
-        <p className="text-zinc-400 text-sm">Sign in to resume mock interviews</p>
+        <h2 className="text-3xl font-extrabold text-slate-900">Welcome Back</h2>
+        <p className="text-slate-500 text-sm">Sign in to resume mock interviews</p>
       </div>
 
       {/* Card Form */}
       <GlassCard>
         <form onSubmit={handleSubmit} className="space-y-5">
           {success && (
-            <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
+            <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-600 text-xs font-semibold">
               {success}
             </div>
           )}
 
           {error && (
-            <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-semibold">
+            <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-xs font-semibold">
               {error}
             </div>
           )}
@@ -123,9 +123,9 @@ function LoginContent() {
         </form>
 
         {/* Footer controls */}
-        <div className="mt-6 text-center text-xs text-zinc-400 border-t border-white/5 pt-4">
+        <div className="mt-6 text-center text-xs text-slate-500 border-t border-slate-200 pt-4">
           New to PrepAI?{" "}
-          <Link href="/register" className="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center justify-center gap-1 mt-1 hover:underline">
+          <Link href="/register" className="text-indigo-600 hover:text-indigo-700 font-semibold flex items-center justify-center gap-1 mt-1 hover:underline">
             <span>Create an account</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -138,7 +138,7 @@ function LoginContent() {
 export default function Login() {
   return (
     <div className="flex-grow flex items-center justify-center py-16 px-4">
-      <Suspense fallback={<div className="text-zinc-400 text-sm">Loading login...</div>}>
+      <Suspense fallback={<div className="text-slate-500 text-sm">Loading login...</div>}>
         <LoginContent />
       </Suspense>
     </div>

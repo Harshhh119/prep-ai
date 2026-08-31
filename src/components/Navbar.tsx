@@ -51,15 +51,15 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-black/50 backdrop-blur-md px-4 py-3">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/70 backdrop-blur-md px-4 py-3">
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25">
+          <div className="p-2 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/30">
             <Brain className="w-5 h-5 group-hover:scale-110 transition-transform" />
           </div>
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-300">
+          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
             PrepAI
           </span>
         </Link>
@@ -73,8 +73,8 @@ export default function Navbar() {
                 href="/dashboard"
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm transition-all ${
                   pathname === "/dashboard"
-                    ? "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"
-                    : "text-zinc-300 hover:text-white hover:bg-white/5"
+                    ? "bg-indigo-50 text-indigo-700 border border-indigo-200"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
               >
                 <LayoutDashboard className="w-4 h-4" />
@@ -82,15 +82,15 @@ export default function Navbar() {
               </Link>
 
               {/* User badge */}
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm bg-white/5 border border-white/5 text-zinc-300">
-                <UserIcon className="w-4 h-4 text-purple-400" />
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm bg-slate-100 border border-slate-200 text-slate-600">
+                <UserIcon className="w-4 h-4 text-purple-600" />
                 <span className="max-w-[120px] truncate">{user.name}</span>
               </div>
 
               {/* Logout Button */}
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-all cursor-pointer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-red-500 hover:text-red-600 hover:bg-red-50 border border-transparent hover:border-red-200 transition-all cursor-pointer"
               >
                 <LogOut className="w-4 h-4" />
                 <span>Logout</span>
@@ -102,7 +102,7 @@ export default function Navbar() {
                 {/* Logged Out Controls */}
                 <Link
                   href="/login"
-                  className="px-4 py-1.5 text-sm text-zinc-300 hover:text-white transition-colors"
+                  className="px-4 py-1.5 text-sm text-slate-600 hover:text-slate-900 transition-colors"
                 >
                   Sign In
                 </Link>

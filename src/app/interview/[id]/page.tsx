@@ -136,7 +136,7 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
 
   if (loading) {
     return (
-      <div className="flex-grow flex flex-col items-center justify-center text-zinc-400 gap-2">
+      <div className="flex-grow flex flex-col items-center justify-center text-slate-500 gap-2">
         <div className="w-8 h-8 rounded-full border-2 border-indigo-500 border-t-transparent animate-spin" />
         <span className="text-xs font-semibold">Loading simulator environment...</span>
       </div>
@@ -146,10 +146,10 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
   if (error && !session) {
     return (
       <div className="max-w-md mx-auto py-16 px-4 text-center space-y-4">
-        <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+        <div className="p-3 rounded-lg bg-red-50 border-red-200 text-red-600 text-sm">
           {error}
         </div>
-        <Link href="/dashboard" className="text-indigo-400 hover:underline text-sm font-semibold">
+        <Link href="/dashboard" className="text-indigo-600 hover:underline text-sm font-semibold">
           Return to Dashboard
         </Link>
       </div>
@@ -165,16 +165,16 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 w-full space-y-8 flex-grow flex flex-col">
       {/* Header Info */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/5 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <div>
-          <span className="text-[10px] font-bold tracking-wider uppercase text-zinc-400 bg-white/5 border border-white/5 px-2 py-0.5 rounded">
+          <span className="text-[10px] font-bold tracking-wider uppercase text-slate-500 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded">
             {session.difficulty} level
           </span>
-          <h1 className="text-2xl font-bold text-white mt-1.5">{session.title}</h1>
+          <h1 className="text-2xl font-bold text-slate-900 mt-1.5">{session.title}</h1>
         </div>
         <Link
           href="/dashboard"
-          className="text-xs text-zinc-400 hover:text-white flex items-center gap-1 self-start sm:self-center"
+          className="text-xs text-slate-500 hover:text-slate-900 flex items-center gap-1 self-start sm:self-center"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Exit Simulation</span>
@@ -183,11 +183,11 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
 
       {/* Progress HUD */}
       <div className="space-y-2">
-        <div className="flex justify-between text-xs font-bold text-zinc-400">
+        <div className="flex justify-between text-xs font-bold text-slate-500">
           <span>Question {activeIdx + 1} of {session.questions.length}</span>
           <span>{progressPercent}% Complete</span>
         </div>
-        <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden border border-white/5">
+        <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden border border-slate-200">
           <div 
             className="bg-indigo-500 h-full rounded-full transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
@@ -201,24 +201,24 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
         {/* Question Panel */}
         <GlassCard className="md:col-span-2 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-indigo-400">
+            <div className="flex items-center gap-2 text-indigo-600">
               <HelpCircle className="w-5 h-5 flex-shrink-0" />
               <span className="text-xs font-semibold uppercase tracking-wider">AI Question Prompter</span>
             </div>
             
-            <p className="text-lg sm:text-xl font-bold text-white leading-relaxed">
+            <p className="text-lg sm:text-xl font-bold text-slate-900 leading-relaxed">
               {currentQuestion.questionText}
             </p>
           </div>
 
           <div className="space-y-3">
-            <div className="flex justify-between items-center text-xs text-zinc-400">
+            <div className="flex justify-between items-center text-xs text-slate-500">
               <span className="font-semibold">Type your response below:</span>
               <span>{answer.length} chars</span>
             </div>
             
             <textarea
-              className="w-full h-48 px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/10 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all font-mono resize-none"
+              className="w-full h-48 px-3.5 py-2.5 rounded-lg bg-white border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all font-mono resize-none"
               placeholder="Explain your approach, list technical keywords, or mock down pseudo code..."
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
@@ -226,7 +226,7 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
             />
 
             {error && (
-              <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs">
+              <div className="p-3 rounded-lg bg-red-50 border-red-200 text-red-600 text-xs">
                 {error}
               </div>
             )}
@@ -257,27 +257,27 @@ export default function LiveInterview({ params }: { params: Promise<{ id: string
         {/* Side Panel: Tips & Quick Badges */}
         <div className="flex flex-col gap-6">
           <GlassCard className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-purple-400">
+            <div className="flex items-center gap-2 text-purple-600">
               <Brain className="w-5 h-5" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-purple-300">Interview Tips</span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-purple-700">Interview Tips</span>
             </div>
             
-            <ul className="text-xs text-zinc-400 space-y-3 leading-relaxed list-disc list-inside">
-              <li>Structure your answers using the <strong className="text-zinc-300">STAR method</strong> (Situation, Task, Action, Result).</li>
+            <ul className="text-xs text-slate-500 space-y-3 leading-relaxed list-disc list-inside">
+              <li>Structure your answers using the <strong className="text-slate-600">STAR method</strong> (Situation, Task, Action, Result).</li>
               <li>Include concrete technology names (e.g. specify Redis for backend queues or next/image for image performance).</li>
               <li>Don't be afraid to explain trade-offs. Discuss pros vs cons.</li>
             </ul>
           </GlassCard>
 
-          <GlassCard className="flex-grow flex flex-col justify-center items-center text-center p-6 border border-white/5 space-y-4">
-            <Award className="w-8 h-8 text-indigo-400" />
+          <GlassCard className="flex-grow flex flex-col justify-center items-center text-center p-6 border border-slate-200 space-y-4">
+            <Award className="w-8 h-8 text-indigo-600" />
             <div className="space-y-1">
-              <p className="text-sm font-bold text-white">Gemini Grading Core</p>
-              <p className="text-xs text-zinc-400 max-w-[200px] mx-auto leading-relaxed">
+              <p className="text-sm font-bold text-slate-900">Gemini Grading Core</p>
+              <p className="text-xs text-slate-500 max-w-[200px] mx-auto leading-relaxed">
                 Your response is processed in real time. We grade your technical accuracy and contextual depth.
               </p>
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+            <div className="flex items-center gap-1 text-[10px] text-emerald-600 font-semibold bg-emerald-50 border-emerald-200 px-2 py-0.5 rounded border">
               <CheckCircle className="w-3 h-3" />
               <span>Response Autograding Active</span>
             </div>
