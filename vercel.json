@@ -1,11 +1,8 @@
 {
-  "services": {
-    "backend": {
-      "root": "backend",
-      "entrypoint": "app/main.py"
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
     }
-  },
-  "routes": [
-    { "src": "/(.*)", "dest": "backend" }
   ]
 }
