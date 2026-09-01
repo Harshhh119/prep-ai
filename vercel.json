@@ -4,7 +4,8 @@
       "root": "."
     },
     "backend": {
-      "root": "backend/"
+      "root": "backend/",
+      "entrypoint": "app.main:app"
     }
   },
   "rewrites": [
