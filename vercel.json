@@ -1,13 +1,11 @@
 {
-  "services": {
-    "backend": {
-      "root": "backend",
-      "entrypoint": "app.main:app"
-    }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": { "service": "backend" } },
-    { "source": "/docs", "destination": { "service": "backend" } },
-    { "source": "/openapi.json", "destination": { "service": "backend" } }
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/next" },
+    { "src": "backend/**", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "backend/$1" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }

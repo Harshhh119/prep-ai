@@ -1,0 +1,59 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid()) @map("id")
+  name      String   @map("name")
+  email     String   @unique @map("email")
+  password  String   @map("password")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  interviews InterviewSession[] @relation("UserInterviews")
+
+  @@map("users")
+}
+
+model InterviewSession {
+  id                 String   @id @default(uuid()) @map("id")
+  userId             String   @map("user_id")
+  title              String   @map("title")
+  role               String   @map("role")
+  difficulty         String   @map("difficulty")
+  overallScore       Float?   @map("overall_score")
+  feedbackSummary    String?  @map("feedback_summary")
+  personalizedRoadmap String? @map("personalized_roadmap")
+  status             String   @default("IN_PROGRESS") @map("status")
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  user               User     @relation("UserInterviews", fields: [userId], references: [id], onDelete: Cascade)
+  questions          InterviewQuestion[] @relation("SessionQuestions")
+
+  @@map("interview_sessions")
+}
+
+model InterviewQuestion {
+  id          String   @id @default(uuid()) @map("id")
+  sessionId   String   @map("session_id")
+  questionText String  @map("question_text")
+  orderIndex  Int      @map("order_index")
+  userAnswer  String?  @map("user_answer")
+  aiScore     Float?   @map("ai_score")
+  aiFeedback  String?  @map("ai_feedback")
+  modelAnswer String?  @map("model_answer")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  session     InterviewSession @relation("SessionQuestions", fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@map("interview_questions")
+}
