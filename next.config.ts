@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
+const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || "http://127.0.0.1:8000";
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${PYTHON_BACKEND_URL}/api/:path*`,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
