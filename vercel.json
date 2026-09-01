@@ -2,7 +2,7 @@
   "services": {
     "backend": {
       "root": "backend",
-      "entrypoint": "backend"
+      "entrypoint": "app.main:app"
     }
   },
   "rewrites": [
