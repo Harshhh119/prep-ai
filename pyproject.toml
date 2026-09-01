@@ -1,3 +1,7 @@
 Ini, TOML
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
 [tool.vercel]
 entrypoint = "backend.app.main:app"
