@@ -12,36 +12,42 @@ model User {
   name       String
   email      String             @unique
   password   String
-  createdAt  DateTime           @default(now())
-  updatedAt  DateTime           @updatedAt
+  createdAt  DateTime           @default(now()) @map("created_at")
+  updatedAt  DateTime           @updatedAt @map("updated_at")
   interviews InterviewSession[]
+
+  @@map("users")
 }
 
 model InterviewSession {
   id                  String              @id @default(uuid())
-  userId              String
+  userId              String              @map("user_id")
   user                User                @relation(fields: [userId], references: [id], onDelete: Cascade)
   title               String
   role                String
   difficulty          String
-  overallScore        Int?                // Nullable until completed
-  feedbackSummary     String?             
-  personalizedRoadmap String?            
+  overallScore        Int?                @map("overall_score")
+  feedbackSummary     String?             @map("feedback_summary")
+  personalizedRoadmap String?             @map("personalized_roadmap")
   status              String              // "DRAFT", "IN_PROGRESS", "COMPLETED"
   questions           InterviewQuestion[]
-  createdAt           DateTime            @default(now())
-  updatedAt           DateTime            @updatedAt
+  createdAt           DateTime            @default(now()) @map("created_at")
+  updatedAt           DateTime            @updatedAt @map("updated_at")
+
+  @@map("interview_sessions")
 }
 
 model InterviewQuestion {
   id           String           @id @default(uuid())
-  sessionId    String
+  sessionId    String           @map("session_id")
   session      InterviewSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-  questionText String          
-  orderIndex   Int
-  userAnswer   String?         
-  aiScore      Int?             // Individual question score (0-100)
-  aiFeedback   String?          
-  modelAnswer  String?         
-  createdAt    DateTime         @default(now())
+  questionText String           @map("question_text")
+  orderIndex   Int              @map("order_index")
+  userAnswer   String?          @map("user_answer")
+  aiScore      Int?             @map("ai_score")
+  aiFeedback   String?          @map("ai_feedback")
+  modelAnswer  String?          @map("model_answer")
+  createdAt    DateTime         @default(now()) @map("created_at")
+
+  @@map("interview_questions")
 }
